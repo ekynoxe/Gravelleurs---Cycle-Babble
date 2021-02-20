@@ -1,2 +1,16 @@
 {
+  "aVeryLongPieceOfTextToTestWraping": "a very long",
+  "barTape": "cinta de manillar",
+  "bell": "timbre",
+  "brakeCaliper": "pinza de freno",
+  "brakes": "freno",
+  "cable": "cable",
+  "chainBreaker": "tronchacadenas",
+  "cranks": "biela",
+  "handlebars": "manillar",
+  "rim": "llanta",
+  "saddle": "sillin",
+  "shifters": "manetas",
+  "stem": "potencia",
+  "wheel": "rueda"
 }

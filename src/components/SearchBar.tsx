@@ -23,21 +23,18 @@ interface Props {
   searchTerm?: string;
 }
 
-const SearchBar = ({ onChange, searchTerm = ''}: Props) => {
-
-  return (
-    <View style={styles.background}>
-      <Feather name="search" size={24} />
-      <TextInput
-        style={styles.input}
-        onChangeText={onChange}
-        autoCapitalize='none'
-        autoCorrect={false}
-        placeholder="Search"
-        value={searchTerm}
-      />
-    </View>
-  );
-};
+const SearchBar = ({ onChange, searchTerm = ''}: Props) => (
+  <View style={styles.background}>
+    <Feather name="search" size={24} />
+    <TextInput
+      style={styles.input}
+      onChangeText={onChange}
+      autoCapitalize='none'
+      autoCorrect={false}
+      placeholder="Search"
+      value={searchTerm}
+    />
+  </View>
+);
 
 export default SearchBar;

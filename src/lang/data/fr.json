@@ -1,10 +1,16 @@
 {
+  "aVeryLongPieceOfTextToTestWraping": "wraping",
   "barTape": "guidoline",
   "bell": "sonnette",
+  "brakeCaliper": "étrier de frein",
   "brakes": "freins",
-  "cable": "cable",
+  "cable": "cäble",
   "chainBreaker": "dérive-chaîne",
   "cranks": "manivelles",
   "handlebars": "guidon",
-  "shifters": "manettes"
+  "rim": "jante",
+  "saddle": "selle",
+  "shifters": "manettes",
+  "stem": "potence",
+  "wheel": "roue"
 }

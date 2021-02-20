@@ -19,7 +19,7 @@ const ListScreen = () => {
   }, [searchTerm]);
 
   return <SafeAreaView style={styles.container}>
-    <View>
+    <View style={{flex: -1}}>
       <SearchBar onChange={setSearchTerm} searchTerm={searchTerm} />
       <PaperTable data={filteredData} />
     </View>

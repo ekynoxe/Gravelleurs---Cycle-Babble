@@ -1,17 +1,18 @@
 import React from "react";
 import { DataTable } from "react-native-paper";
 import { ScrollView, StyleSheet, Text } from "react-native";
+import TableCell from './TableCell'
 
 const styles = StyleSheet.create({
-  cell: { minWidth: 200 },
+  cell: { width: 160, marginRight: 30 },
   head: { backgroundColor: "#f1f8ff" },
   headText: { fontSize: 20, fontWeight: '700' },
 });
 
 export const PaperTable = ({data}: { data: any;}) => {
   return (
-    <DataTable>
-      <ScrollView horizontal={true}>
+    <ScrollView horizontal={true}>
+      <DataTable>
         <ScrollView stickyHeaderIndices={[0]}>
           <DataTable.Header 
             accessibilityTraits={undefined}
@@ -29,7 +30,7 @@ export const PaperTable = ({data}: { data: any;}) => {
               </DataTable.Title>
             ))}
           </DataTable.Header>
-
+          
           {data.rows.map((row: any, index: number) => (
             <DataTable.Row
               key={index}
@@ -37,19 +38,19 @@ export const PaperTable = ({data}: { data: any;}) => {
               accessibilityComponentType={undefined}
             >
               {row.map((_: any, cellIndex: number) => (
-                <DataTable.Cell
+                <TableCell
                   key={cellIndex}
                   accessibilityTraits={undefined}
                   accessibilityComponentType={undefined}
                   style={styles.cell}
                 >
                   <Text>{row[cellIndex]}</Text>
-                </DataTable.Cell>
+                </TableCell>
               ))}
             </DataTable.Row>
           ))}
         </ScrollView>
-      </ScrollView>
-    </DataTable>
+      </DataTable>
+    </ScrollView>
   );
 };
