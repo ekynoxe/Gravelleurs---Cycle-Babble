@@ -3,7 +3,7 @@ import { StyleSheet, SafeAreaView, Text, View } from 'react-native'
 import { StatusBar } from 'expo-status-bar';
 import { PaperTable } from '../../components/PaperTable';
 import SearchBar from '../../components/SearchBar';
-import data from '../../data/lang';
+import data, { Language } from '../../data/lang';
 
 const styles = StyleSheet.create({
   container: {
@@ -19,7 +19,7 @@ const LexiconScreen = () => {
   const filteredData = useMemo(() => {
     const regexp = new RegExp( searchTerm, 'gi' );
     return {
-      head: data.head,
+      head: Object.entries(data.languages).map(([_, language]) => language.label),
       rows: data.rows.filter((row) => {
         return row.find((word) => word.match(regexp));
       })

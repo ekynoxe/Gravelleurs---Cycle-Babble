@@ -1,16 +1,17 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
+import { Feather, Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 
-import LexiconStack from '../screens/Lexicon';
 import AirportsStack from '../screens/Airports';
+import LexiconStack from '../screens/Lexicon';
+import SettingsStack from '../screens/Settings';
 
 const Tab = createBottomTabNavigator();
 
 export default () => {
   return (
     <Tab.Navigator
-      initialRouteName="Feed"
+      initialRouteName="Lexicon"
       tabBarOptions={{
         activeTintColor: '#e91e63',
       }} 
@@ -32,6 +33,16 @@ export default () => {
           tabBarLabel: 'Vroar',
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="airplane" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Settings"
+        component={SettingsStack}
+        options={{
+          tabBarLabel: 'Whaaa?',
+          tabBarIcon: ({ color, size }) => (
+            <Feather name="settings" color={color} size={size} />
           ),
         }}
       />

@@ -14,11 +14,24 @@ const langs = [
   `${flags.FR.emoji} FR`,
 ] as string[];
 
+export interface Language {
+  key: string;
+  label: string;
+}
+
+const languages = ['GB', 'ES', 'FR'].reduce((acc: {[key: string]: Language}, lang) => {
+  acc[lang] = {
+    key: lang,
+    label: `${flags[lang].emoji} ${lang}`,
+  };
+  return acc;
+}, {});
+
 Object.keys(en).forEach((k: string) => {
   words.push([EN_WORDS[k] || '--', ES_WORDS[k] || '--', FR_WORDS[k] || '--']);
 });
 
 export default {
-  head: [...langs],
+  languages,
   rows: [...words],
 };
