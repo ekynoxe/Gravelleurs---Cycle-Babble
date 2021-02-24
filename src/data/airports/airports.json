@@ -1,0 +1,24 @@
+[
+  {
+    "name": "London Heathrow",
+    "code": "LHR",
+    "countryCode": "GB",
+    "facilities": {
+      "bulkItemsBelts": [
+        "T1: E19",
+        "T5: B10"
+      ]
+    }
+  },
+  {
+    "name": "London Gatwick",
+    "code": "LGW",
+    "countryCode": "GB",
+    "facilities": {
+      "bulkItemsBelts": [
+        "north: B2",
+        "south: C9"
+      ]
+    }
+  }
+]

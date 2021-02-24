@@ -1,18 +1,14 @@
-import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
-// import AppLoading from 'expo-app-loading';
-import ListScreen from './src/screens/ListScreen';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
 
-const navigator = createStackNavigator(
-  {
-    List: ListScreen
-  },
-  {
-    initialRouteName: 'List',
-    defaultNavigationOptions: {
-      title: 'Cycle Babble',
-    },
-  }
-);
+import Tabs from './src/components/NavTabs';
 
-export default createAppContainer(navigator);
+const App = () => {
+  return (
+    <NavigationContainer>
+      <Tabs />
+    </NavigationContainer>
+  );
+}
+
+export default App

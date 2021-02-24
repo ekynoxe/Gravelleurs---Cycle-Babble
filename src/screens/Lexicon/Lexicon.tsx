@@ -1,11 +1,19 @@
 import React, { useMemo, useState } from 'react'
 import { StyleSheet, SafeAreaView, Text, View } from 'react-native'
 import { StatusBar } from 'expo-status-bar';
-import { PaperTable } from '../components/PaperTable';
-import SearchBar from '../components/SearchBar';
-import data from '../lang';
+import { PaperTable } from '../../components/PaperTable';
+import SearchBar from '../../components/SearchBar';
+import data from '../../data/lang';
 
-const ListScreen = () => {
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#f8f8f8",
+    color: "#000000"
+  },
+})
+
+const LexiconScreen = () => {
   const[searchTerm, setSearchTerm] = useState('');
   
   const filteredData = useMemo(() => {
@@ -27,16 +35,4 @@ const ListScreen = () => {
   </SafeAreaView>
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#f8f8f8",
-    color: "#000000"
-  },
-  textStyle: {
-    marginHorizontal: 20,
-    marginVertical: 10
-  }
-})
-
-export default ListScreen
+export default LexiconScreen
