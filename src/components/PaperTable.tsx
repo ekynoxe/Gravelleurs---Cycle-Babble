@@ -6,7 +6,7 @@ import TableCell from './TableCell';
 const styles = StyleSheet.create({
   cell: { width: '30%', marginRight: 30 },
   head: { backgroundColor: '#f1f8ff' },
-  headText: { fontSize: 20, fontWeight: '700' },
+  headText: { color: '#000', fontSize: 20, fontWeight: '700' },
 });
 
 const PaperTable = ({ data }: { data: any; }) => (
