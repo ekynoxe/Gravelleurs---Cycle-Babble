@@ -8,18 +8,18 @@ const EN_WORDS = en as DataType;
 const ES_WORDS = es as DataType;
 const FR_WORDS = fr as DataType;
 const words = [] as string[][];
-const langs = [
-  `${flags.GB.emoji} GB`,
-  `${flags.ES.emoji} ES`,
-  `${flags.FR.emoji} FR`,
-] as string[];
+// const langs = [
+//   `${flags.GB.emoji} GB`,
+//   `${flags.ES.emoji} ES`,
+//   `${flags.FR.emoji} FR`,
+// ] as string[];
 
 export interface Language {
   key: string;
   label: string;
 }
 
-const languages = ['GB', 'ES', 'FR'].reduce((acc: {[key: string]: Language}, lang) => {
+const languages = ['GB', 'ES', 'FR'].reduce((acc: { [key: string]: Language }, lang) => {
   acc[lang] = {
     key: lang,
     label: `${flags[lang].emoji} ${lang}`,

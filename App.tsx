@@ -3,12 +3,10 @@ import { NavigationContainer } from '@react-navigation/native';
 
 import Tabs from './src/components/NavTabs';
 
-const App = () => {
-  return (
-    <NavigationContainer>
-      <Tabs />
-    </NavigationContainer>
-  );
-}
+const App = () => (
+  <NavigationContainer>
+    <Tabs />
+  </NavigationContainer>
+);
 
-export default App
+export default App;

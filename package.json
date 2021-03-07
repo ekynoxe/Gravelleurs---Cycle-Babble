@@ -1,6 +1,8 @@
 {
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
+    "lint": "eslint ./src --ext .js,.jsx,.ts,.tsx",
+    "lint:all": "eslint . --ext .js,.jsx,.ts,.tsx",
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
@@ -8,6 +10,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@expo/vector-icons": "^12.0.3",
     "@react-native-async-storage/async-storage": "^1.14.1",
     "@react-navigation/bottom-tabs": "^5.11.8",
     "@react-navigation/native": "^5.9.3",
@@ -35,6 +38,13 @@
     "@types/react": "~16.9.35",
     "@types/react-dom": "~16.9.8",
     "@types/react-native-table-component": "^1.2.0",
+    "@typescript-eslint/eslint-plugin": "^4.4.1",
+    "eslint": "^7.21.0",
+    "eslint-config-airbnb-typescript": "^12.3.1",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.20.3",
+    "eslint-plugin-react-hooks": "^4.0.8",
     "typescript": "~4.0.0"
   },
   "private": true
