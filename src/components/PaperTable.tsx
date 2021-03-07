@@ -4,13 +4,13 @@ import { ScrollView, StyleSheet, Text } from 'react-native';
 import TableCell from './TableCell';
 
 const styles = StyleSheet.create({
-  cell: { width: 160, marginRight: 30 },
+  cell: { width: '30%', marginRight: 30 },
   head: { backgroundColor: '#f1f8ff' },
   headText: { fontSize: 20, fontWeight: '700' },
 });
 
 const PaperTable = ({ data }: { data: any; }) => (
-  <ScrollView horizontal>
+  <ScrollView horizontal contentContainerStyle={{ width: '100%' }}>
     <DataTable>
       <ScrollView stickyHeaderIndices={[0]}>
         <DataTable.Header

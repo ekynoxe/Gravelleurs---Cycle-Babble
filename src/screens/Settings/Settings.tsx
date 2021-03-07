@@ -41,7 +41,7 @@ const SettingsScreen = () => {
         >
           {
             Object.entries(data.languages).map(([key, language]) => (
-              <RadioButton.Item label={language.label} value={key} />))
+              <RadioButton.Item label={language.label} key={key} value={key} />))
           }
         </RadioButton.Group>
       </View>
