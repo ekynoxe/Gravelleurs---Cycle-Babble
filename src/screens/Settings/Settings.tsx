@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import {
   StyleSheet, SafeAreaView, Text, View,
 } from 'react-native';
@@ -6,7 +6,7 @@ import { RadioButton } from 'react-native-paper';
 import { StatusBar } from 'expo-status-bar';
 import data from '../../data/lang';
 
-import { readData, writeData } from '../../utils/useSettings';
+import { useSettings } from '../../utils/useSettings';
 
 const styles = StyleSheet.create({
   container: {
@@ -17,26 +17,28 @@ const styles = StyleSheet.create({
 });
 
 const SettingsScreen = () => {
-  const [settings, setSettings] = useState({ defaultLang: 'GB' });
+  const [settings, loading, error, saveSettings] = useSettings();
 
-  useEffect(() => {
-    const readSetings = async () => {
-      const storedSettings = await readData('settings');
-      setSettings(storedSettings);
-    };
-
-    readSetings();
-  }, []);
-
-  return (
+  return loading || error ? null : (
     <SafeAreaView style={styles.container}>
       <View style={{ flex: -1 }}>
-        <Text>{ JSON.stringify(settings) }</Text>
+        <Text>Default Language</Text>
         <RadioButton.Group
-          value={settings.defaultLang}
+          value={settings.lexiconLang}
           onValueChange={(lang) => {
-            writeData('settings', { defaultLang: lang });
-            setSettings({ defaultLang: lang });
+            saveSettings({ lexiconLang: lang });
+          }}
+        >
+          {
+            Object.entries(data.languages).map(([key, language]) => (
+              <RadioButton.Item label={language.label} key={key} value={key} />))
+          }
+        </RadioButton.Group>
+        <Text>App Language</Text>
+        <RadioButton.Group
+          value={settings.appLang}
+          onValueChange={(lang) => {
+            saveSettings({ appLang: lang });
           }}
         >
           {

@@ -22,7 +22,7 @@ const LexiconScreen = () => {
     const regexp = new RegExp(searchTerm, 'gi');
     return {
       head: Object.entries(data.languages).map(([, language]) => language.label),
-      rows: data.rows.filter((row) => row.find((word) => word.match(regexp))),
+      rows: data.lexicon.filter((row) => row.find((word) => word.match(regexp))),
     };
   }, [searchTerm]);
 
