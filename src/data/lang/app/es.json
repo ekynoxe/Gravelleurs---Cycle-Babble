@@ -1,5 +1,17 @@
 {
-  "airports": "Aeropuertos",
-  "lexicon": "Léxico",
-  "settings": "Ajustes"
+  "airport": {
+    "facilities": "Servicios:"
+  },
+  "navTabs": {
+    "airports": "Aeropuertos",
+    "lexicon": "Léxico",
+    "settings": "Ajustes"
+  },
+  "search": {
+    "placeholder": "Buscar"
+  },
+  "settings": {
+    "appLanguage": "Idioma de la aplicación",
+    "baseLanguage": "Idioma base"
+  }
 }

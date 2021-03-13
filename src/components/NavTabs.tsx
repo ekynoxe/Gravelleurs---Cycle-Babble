@@ -5,7 +5,7 @@ import { Feather, Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import AirportsStack from '../screens/Airports';
 import LexiconStack from '../screens/Lexicon';
 import SettingsStack from '../screens/Settings';
-import useTranslation from '../utils/useTranslation';
+import { useTranslation } from '../utils/i18n';
 
 const Tab = createBottomTabNavigator();
 
@@ -22,7 +22,7 @@ export default () => {
         name="Lexicon"
         component={LexiconStack}
         options={{
-          tabBarLabel: t('lexicon'),
+          tabBarLabel: t('navTabs.lexicon'),
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="chatbubble-ellipses-outline" color={color} size={size} />
           ),
@@ -32,20 +32,22 @@ export default () => {
         name="Airports"
         component={AirportsStack}
         options={{
-          tabBarLabel: t('airports'),
+          tabBarLabel: t('navTabs.airports'),
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="airplane" color={color} size={size} />
           ),
+          title: t('navTabs.airports'),
         }}
       />
       <Tab.Screen
         name="Settings"
         component={SettingsStack}
         options={{
-          tabBarLabel: t('settings'),
+          tabBarLabel: t('navTabs.settings'),
           tabBarIcon: ({ color, size }) => (
             <Feather name="settings" color={color} size={size} />
           ),
+          title: t('navTabs.settings'),
         }}
       />
     </Tab.Navigator>

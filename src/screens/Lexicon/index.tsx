@@ -2,15 +2,25 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import LexiconScreen from './Lexicon';
+import { useTranslation } from '../../utils/i18n';
 
 const Stack = createStackNavigator();
 
-const AirportStack = () => (
-  <Stack.Navigator
-    headerMode="screen"
-  >
-    <Stack.Screen name="Lexicon" component={LexiconScreen} />
-  </Stack.Navigator>
-);
+const LexiconStack = () => {
+  const { t } = useTranslation();
+  return (
+    <Stack.Navigator
+      headerMode="screen"
+    >
+      <Stack.Screen
+        name="Lexicon"
+        component={LexiconScreen}
+        options={{
+          title: t('navTabs.lexicon'),
+        }}
+      />
+    </Stack.Navigator>
+  );
+};
 
-export default () => <AirportStack />;
+export default () => <LexiconStack />;

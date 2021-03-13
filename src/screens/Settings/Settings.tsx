@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   StyleSheet, SafeAreaView, Text, View,
 } from 'react-native';
 import { RadioButton } from 'react-native-paper';
 import { StatusBar } from 'expo-status-bar';
+import { useTranslation } from '../../utils/i18n';
 import data from '../../data/lang';
 
-import { useSettings } from '../../utils/useSettings';
+import { SettingsContext } from '../../utils/SettingsContext';
 
 const styles = StyleSheet.create({
   container: {
@@ -17,16 +18,19 @@ const styles = StyleSheet.create({
 });
 
 const SettingsScreen = () => {
-  const [settings, loading, error, saveSettings] = useSettings();
+  const { t } = useTranslation();
+  const { settings, updateSettings } = useContext(SettingsContext);
+  const loading = false;
+  const error = false;
 
   return loading || error ? null : (
     <SafeAreaView style={styles.container}>
       <View style={{ flex: -1 }}>
-        <Text>Default Language</Text>
+        <Text>{ t('settings.baseLanguage') }</Text>
         <RadioButton.Group
-          value={settings.lexiconLang}
+          value={settings.baseLang || ''}
           onValueChange={(lang) => {
-            saveSettings({ lexiconLang: lang });
+            updateSettings({ baseLang: lang });
           }}
         >
           {
@@ -34,11 +38,11 @@ const SettingsScreen = () => {
               <RadioButton.Item label={language.label} key={key} value={key} />))
           }
         </RadioButton.Group>
-        <Text>App Language</Text>
+        <Text>{ t('settings.appLanguage') }</Text>
         <RadioButton.Group
-          value={settings.appLang}
+          value={settings.appLang || ''}
           onValueChange={(lang) => {
-            saveSettings({ appLang: lang });
+            updateSettings({ appLang: lang });
           }}
         >
           {

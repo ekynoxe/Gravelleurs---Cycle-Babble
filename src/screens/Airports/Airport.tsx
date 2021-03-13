@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import {
   StyleSheet, SafeAreaView, Text, View,
 } from 'react-native';
+import { useTranslation } from '../../utils/i18n';
 import { Airport } from '../../data/airports';
 
 const styles = StyleSheet.create({
@@ -13,6 +14,7 @@ const styles = StyleSheet.create({
 });
 
 const AirportScreen = ({ route, navigation }: { route: any; navigation: any }) => {
+  const { t } = useTranslation();
   const { airport }: { airport: Airport } = route.params;
 
   useEffect(() => {
@@ -25,7 +27,7 @@ const AirportScreen = ({ route, navigation }: { route: any; navigation: any }) =
         <Text>{airport.name}</Text>
         <Text>{airport.code}</Text>
         <View>
-          <Text>Facilities:</Text>
+          <Text>{t('airport.facilities')}</Text>
         </View>
       </View>
     </SafeAreaView>

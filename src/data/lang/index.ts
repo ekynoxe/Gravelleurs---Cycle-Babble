@@ -14,7 +14,7 @@ const FR_WORDS_LEXICON = frLexicon as DataType;
 const EN_WORDS_APP = enApp as DataType;
 const ES_WORDS_APP = esApp as DataType;
 const FR_WORDS_APP = frApp as DataType;
-// const wordsApp = {} as { [key: string]: { [key: string]: string; } };
+
 const wordsLexicon = [] as string[][];
 export interface Language {
   key: string;
@@ -27,10 +27,14 @@ export interface AppWords {
   fr: DataType;
 }
 
-const languages = ['GB', 'ES', 'FR'].reduce((acc: { [key: string]: Language }, lang) => {
+const languages = [
+  { lang: 'en', country: 'GB' },
+  { lang: 'es', country: 'ES' },
+  { lang: 'fr', country: 'FR' },
+].reduce((acc: { [key: string]: Language }, { lang, country }) => {
   acc[lang] = {
     key: lang,
-    label: `${flags[lang].emoji} ${lang}`,
+    label: `${flags[country].emoji} ${lang}`,
   };
   return acc;
 }, {});
@@ -42,9 +46,9 @@ Object.keys(enLexicon).forEach((k: string) => {
 export default {
   languages,
   app: {
-    EN: EN_WORDS_APP,
-    ES: ES_WORDS_APP,
-    FR: FR_WORDS_APP,
+    en: EN_WORDS_APP,
+    es: ES_WORDS_APP,
+    fr: FR_WORDS_APP,
   },
   lexicon: [...wordsLexicon],
 };
