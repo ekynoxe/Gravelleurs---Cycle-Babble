@@ -4,7 +4,7 @@ import {
 } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import SearchBar from '../../components/SearchBar';
-import data, { Airport } from '../../data/airports';
+import airports, { Airport } from '../../data/airports';
 import flags from '../../data/flags';
 
 const styles = StyleSheet.create({
@@ -19,7 +19,7 @@ const renderAirport = ({ item: airport, navigation }:{ item: Airport, navigation
   <Text>
     <Button
       title={`${flags[airport.countryCode].emoji} ${airport.name}`}
-      onPress={() => navigation.navigate('Airport', { airport })}
+      onPress={() => navigation.navigate('Airport', { airportCode: airport.code })}
     />
   </Text>
 );
@@ -29,7 +29,7 @@ const AirportsListScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
 
   const filteredData = useMemo(() => {
     const regexp = new RegExp(searchTerm, 'gi');
-    return data.airports.filter((airport: Airport) => (
+    return airports.filter((airport: Airport) => (
       airport.name.match(regexp) || airport.code.match(regexp)));
   }, [searchTerm]);
 

@@ -9,7 +9,10 @@ const Stack = createStackNavigator();
 const SettingsStack = () => {
   const { t } = useTranslation();
   return (
-    <Stack.Navigator headerMode="screen">
+    <Stack.Navigator
+      headerMode="screen"
+      initialRouteName="Settings"
+    >
       <Stack.Screen
         name="Settings"
         component={SettingsScreen}

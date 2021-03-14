@@ -18,6 +18,7 @@
     "country-flag-icons": "^1.2.9",
     "expo": "~40.0.0",
     "expo-app-loading": "^1.0.1",
+    "expo-linking": "~2.0.1",
     "expo-localization": "^10.0.0",
     "expo-status-bar": "~1.0.3",
     "i18next": "^19.9.2",

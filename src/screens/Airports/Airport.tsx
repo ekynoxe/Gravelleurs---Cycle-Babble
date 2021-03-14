@@ -3,7 +3,7 @@ import {
   StyleSheet, SafeAreaView, Text, View,
 } from 'react-native';
 import { useTranslation } from '../../utils/i18n';
-import { Airport } from '../../data/airports';
+import airports from '../../data/airports';
 
 const styles = StyleSheet.create({
   container: {
@@ -15,13 +15,17 @@ const styles = StyleSheet.create({
 
 const AirportScreen = ({ route, navigation }: { route: any; navigation: any }) => {
   const { t } = useTranslation();
-  const { airport }: { airport: Airport } = route.params;
+  const { airportCode }: { airportCode: string } = route.params;
+
+  const airport = airports.find((a) => a.code === airportCode);
 
   useEffect(() => {
-    navigation.setOptions({ title: airport.name });
-  }, [airport.name]);
+    if (airport) {
+      navigation.setOptions({ title: airport.name });
+    }
+  }, [airport]);
 
-  return (
+  return !airport ? null : (
     <SafeAreaView style={styles.container}>
       <View style={{ flex: -1 }}>
         <Text>{airport.name}</Text>

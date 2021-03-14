@@ -1,12 +1,42 @@
 import React, { useContext, useEffect, useState } from 'react';
+import * as Linking from 'expo-linking';
 import { NavigationContainer } from '@react-navigation/native';
 
 import Tabs from './components/NavTabs';
+import AirportsStack from './screens/Airports';
 import LoadingScreen from './screens/Loading';
 import { initI18n } from './utils/i18n';
 import languageDetector from './utils/languageDetector';
 
 import { SettingsContext } from './utils/SettingsContext';
+
+const config = {
+  screens: {
+    AirportsStack: {
+      screens: {
+        Airports: 'airports',
+        Airport: 'airport/:airportCode',
+      },
+    },
+    LexiconStack: {
+      screens: {
+        Lexicon: 'lexicon',
+      },
+    },
+    SettingsStack: {
+      screens: {
+        Settings: 'settings',
+      },
+    },
+  },
+};
+
+// const config = {
+//   screens: {
+//     Airports: 'airports',
+//     Airport: 'airport/:airportCode',
+//   },
+// };
 
 const App = () => {
   const {
@@ -15,6 +45,12 @@ const App = () => {
     settings,
   } = useContext(SettingsContext);
   const [isReady, setIsReady] = useState(false);
+  const prefix = Linking.makeUrl('/');
+
+  const linking = {
+    prefixes: ['grav-travel', prefix],
+    config,
+  };
 
   useEffect(() => {
     setIsReady(false);
@@ -25,7 +61,7 @@ const App = () => {
   }, [settings, loadingSettings, errorSettings]);
 
   return (
-    <NavigationContainer>
+    <NavigationContainer linking={linking}>
       { !isReady || loadingSettings || errorSettings ? <LoadingScreen /> : <Tabs /> }
     </NavigationContainer>
   );

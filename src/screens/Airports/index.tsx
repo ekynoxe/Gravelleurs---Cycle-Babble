@@ -7,10 +7,13 @@ import { useTranslation } from '../../utils/i18n';
 
 const Stack = createStackNavigator();
 
-const AirportStack = () => {
+const AirportsStack = () => {
   const { t } = useTranslation();
   return (
-    <Stack.Navigator headerMode="screen">
+    <Stack.Navigator
+      headerMode="screen"
+      initialRouteName="Airports"
+    >
       <Stack.Screen
         name="Airports"
         component={AirportsListScreen}
@@ -26,4 +29,4 @@ const AirportStack = () => {
   );
 };
 
-export default () => <AirportStack />;
+export default () => <AirportsStack />;

@@ -9,6 +9,4 @@ export interface Airport {
   };
 }
 
-export default {
-  airports: data as Airport[],
-};
+export default data as Airport[];

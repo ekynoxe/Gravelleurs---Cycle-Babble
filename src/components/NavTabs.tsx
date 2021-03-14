@@ -19,7 +19,7 @@ export default () => {
       }}
     >
       <Tab.Screen
-        name="Lexicon"
+        name="LexiconStack"
         component={LexiconStack}
         options={{
           tabBarLabel: t('navTabs.lexicon'),
@@ -29,7 +29,7 @@ export default () => {
         }}
       />
       <Tab.Screen
-        name="Airports"
+        name="AirportsStack"
         component={AirportsStack}
         options={{
           tabBarLabel: t('navTabs.airports'),
@@ -40,7 +40,7 @@ export default () => {
         }}
       />
       <Tab.Screen
-        name="Settings"
+        name="SettingsStack"
         component={SettingsStack}
         options={{
           tabBarLabel: t('navTabs.settings'),

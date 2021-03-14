@@ -11,6 +11,7 @@ const LexiconStack = () => {
   return (
     <Stack.Navigator
       headerMode="screen"
+      initialRouteName="Lexicon"
     >
       <Stack.Screen
         name="Lexicon"
