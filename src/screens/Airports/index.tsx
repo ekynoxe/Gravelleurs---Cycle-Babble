@@ -9,9 +9,10 @@ const Stack = createStackNavigator();
 
 const AirportsStack = () => {
   const { t } = useTranslation();
+
   return (
     <Stack.Navigator
-      headerMode="screen"
+      headerMode="none"
       initialRouteName="Airports"
     >
       <Stack.Screen

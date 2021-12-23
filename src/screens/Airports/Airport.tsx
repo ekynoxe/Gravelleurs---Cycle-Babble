@@ -2,8 +2,10 @@ import React, { useEffect } from 'react';
 import {
   StyleSheet, SafeAreaView, Text, View,
 } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import { useTranslation } from '../../utils/i18n';
 import airports from '../../data/airports';
+import PageHeader from '../../components/PageHeader';
 
 const styles = StyleSheet.create({
   container: {
@@ -27,7 +29,17 @@ const AirportScreen = ({ route, navigation }: { route: any; navigation: any }) =
 
   return !airport ? null : (
     <SafeAreaView style={styles.container}>
-      <View style={{ flex: -1 }}>
+      <PageHeader
+        headerText={airport.name}
+        handleOnPressLeftNode={() => navigation.navigate('Airports')}
+        leftNode={<Ionicons name="arrow-back" size={20} color="green" />}
+      />
+      <View style={{
+        flex: -1,
+        paddingHorizontal: 8,
+        paddingVertical: 16,
+      }}
+      >
         <Text>{airport.name}</Text>
         <Text>{airport.code}</Text>
         <View>

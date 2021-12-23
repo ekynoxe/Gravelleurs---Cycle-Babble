@@ -6,6 +6,7 @@ import { StatusBar } from 'expo-status-bar';
 import SearchBar from '../../components/SearchBar';
 import airports, { Airport } from '../../data/airports';
 import flags from '../../data/flags';
+import PageHeader from '../../components/PageHeader';
 
 const styles = StyleSheet.create({
   container: {
@@ -35,6 +36,9 @@ const AirportsListScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
 
   return (
     <SafeAreaView style={styles.container}>
+      <PageHeader
+        headerText="Airports"
+      />
       <View style={{ flex: -1 }}>
         <SearchBar onChange={setSearchTerm} searchTerm={searchTerm} />
         <FlatList

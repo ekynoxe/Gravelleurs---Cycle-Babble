@@ -14,6 +14,7 @@ export default () => {
   return (
     <Tab.Navigator
       initialRouteName="Lexicon"
+      lazy={false}
       tabBarOptions={{
         activeTintColor: '#e91e63',
       }}
@@ -37,7 +38,11 @@ export default () => {
             <MaterialCommunityIcons name="airplane" color={color} size={size} />
           ),
           title: t('navTabs.airports'),
+          unmountOnBlur: true,
         }}
+        listeners={({ navigation }) => (
+          { blur: () => navigation.setParams({ screen: undefined }) }
+        )}
       />
       <Tab.Screen
         name="SettingsStack"

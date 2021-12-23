@@ -3,7 +3,7 @@ import * as Linking from 'expo-linking';
 import { NavigationContainer } from '@react-navigation/native';
 
 import Tabs from './components/NavTabs';
-import AirportsStack from './screens/Airports';
+// import AirportsStack from './screens/Airports';
 import LoadingScreen from './screens/Loading';
 import { initI18n } from './utils/i18n';
 import languageDetector from './utils/languageDetector';
@@ -35,6 +35,8 @@ const config = {
 //   screens: {
 //     Airports: 'airports',
 //     Airport: 'airport/:airportCode',
+//     Lexicon: 'lexicon',
+//     Settings: 'settings',
 //   },
 // };
 
@@ -48,7 +50,7 @@ const App = () => {
   const prefix = Linking.makeUrl('/');
 
   const linking = {
-    prefixes: ['grav-travel', prefix],
+    prefixes: [prefix],
     config,
   };
 
