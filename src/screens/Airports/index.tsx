@@ -12,8 +12,10 @@ const AirportsStack = () => {
 
   return (
     <Stack.Navigator
-      headerMode="none"
       initialRouteName="Airports"
+      screenOptions={{
+        headerShown: false
+      }}
     >
       <Stack.Screen
         name="Airports"

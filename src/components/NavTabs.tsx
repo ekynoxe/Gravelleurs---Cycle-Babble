@@ -14,15 +14,16 @@ export default () => {
   return (
     <Tab.Navigator
       initialRouteName="Lexicon"
-      lazy={false}
-      tabBarOptions={{
-        activeTintColor: '#e91e63',
+      screenOptions={{
+        tabBarActiveTintColor: '#e91e63',
+        lazy:false,
       }}
     >
       <Tab.Screen
         name="LexiconStack"
         component={LexiconStack}
         options={{
+          headerShown: false,
           tabBarLabel: t('navTabs.lexicon'),
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="chatbubble-ellipses-outline" color={color} size={size} />
@@ -33,6 +34,7 @@ export default () => {
         name="AirportsStack"
         component={AirportsStack}
         options={{
+          headerShown: false,
           tabBarLabel: t('navTabs.airports'),
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="airplane" color={color} size={size} />
@@ -48,6 +50,7 @@ export default () => {
         name="SettingsStack"
         component={SettingsStack}
         options={{
+          headerShown: false,
           tabBarLabel: t('navTabs.settings'),
           tabBarIcon: ({ color, size }) => (
             <Feather name="settings" color={color} size={size} />

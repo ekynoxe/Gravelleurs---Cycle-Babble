@@ -10,8 +10,10 @@ const LexiconStack = () => {
   const { t } = useTranslation();
   return (
     <Stack.Navigator
-      headerMode="screen"
       initialRouteName="Lexicon"
+      screenOptions={{
+        headerShown: false
+      }}
     >
       <Stack.Screen
         name="Lexicon"

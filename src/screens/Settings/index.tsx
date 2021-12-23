@@ -10,8 +10,10 @@ const SettingsStack = () => {
   const { t } = useTranslation();
   return (
     <Stack.Navigator
-      headerMode="screen"
       initialRouteName="Settings"
+      screenOptions={{
+        headerShown: false
+      }}
     >
       <Stack.Screen
         name="Settings"
