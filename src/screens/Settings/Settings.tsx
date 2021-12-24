@@ -6,6 +6,7 @@ import { RadioButton } from 'react-native-paper';
 import { StatusBar } from 'expo-status-bar';
 import { useTranslation } from '../../utils/i18n';
 import data from '../../data/lang';
+import PageHeader from '../../components/PageHeader';
 
 import { SettingsContext } from '../../utils/SettingsContext';
 
@@ -25,6 +26,9 @@ const SettingsScreen = () => {
 
   return loading || error ? null : (
     <SafeAreaView style={styles.container}>
+      <PageHeader
+        headerText="Settings"
+      />
       <View style={{ flex: -1 }}>
         <Text>{ t('settings.baseLanguage') }</Text>
         <RadioButton.Group
