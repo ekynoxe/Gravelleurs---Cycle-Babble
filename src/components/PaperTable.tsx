@@ -14,15 +14,11 @@ const PaperTable = ({ data }: { data: any; }) => (
     <DataTable>
       <ScrollView stickyHeaderIndices={[0]}>
         <DataTable.Header
-          accessibilityTraits={undefined}
-          accessibilityComponentType={undefined}
           style={styles.head}
         >
           {data.head.map((column: string) => (
             <DataTable.Title
               key={column}
-              accessibilityTraits={undefined}
-              accessibilityComponentType={undefined}
               style={styles.cell}
             >
               <Text style={StyleSheet.flatten(styles.headText)}>{column}</Text>
@@ -34,15 +30,11 @@ const PaperTable = ({ data }: { data: any; }) => (
           <DataTable.Row
             // eslint-disable-next-line react/no-array-index-key
             key={rowIndex}
-            accessibilityTraits={undefined}
-            accessibilityComponentType={undefined}
           >
             {row.map((_: unknown, cellIndex: number) => (
               <TableCell
                 // eslint-disable-next-line react/no-array-index-key
                 key={`row${rowIndex}-${cellIndex}-${row[cellIndex]}`}
-                accessibilityTraits={undefined}
-                accessibilityComponentType={undefined}
                 style={styles.cell}
               >
                 <Text>{row[cellIndex]}</Text>

@@ -1,18 +1,17 @@
 import React, { useEffect } from 'react';
 import {
-  StyleSheet, SafeAreaView, Text, View,
+  StyleSheet, SafeAreaView, Text, View, ViewStyle,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useTranslation } from '../../utils/i18n';
 import airports from '../../data/airports';
 import PageHeader from '../../components/PageHeader';
 
+import { Screen, ScreenContent } from '../../styles';
+
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#f8f8f8',
-    color: '#000000',
-  },
+  screen: Screen as ViewStyle,
+  screenContent: ScreenContent as ViewStyle,
 });
 
 const AirportScreen = ({ route, navigation }: { route: any; navigation: any }) => {
@@ -28,17 +27,13 @@ const AirportScreen = ({ route, navigation }: { route: any; navigation: any }) =
   }, [airport]);
 
   return !airport ? null : (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.screen}>
       <PageHeader
         headerText={airport.name}
         handleOnPressLeftNode={() => navigation.navigate('Airports')}
         leftNode={<Ionicons name="ios-chevron-back-circle-outline" size={30} />}
       />
-      <View style={{
-        flex: -1,
-        paddingHorizontal: 8,
-        paddingVertical: 16,
-      }}
+      <View style={styles.screenContent}
       >
         <Text>{airport.name}</Text>
         <Text>{airport.code}</Text>

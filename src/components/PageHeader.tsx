@@ -10,17 +10,28 @@ import {
 } from 'react-native';
 
 type PageHeaderProps = {
-  leftNode?: JSX.Element;
-  rightNode?: JSX.Element;
-  headerText?: string;
+  animatingWidthValues?: number[];
   handleOnPressLeftNode?: (event: GestureResponderEvent) => void;
   handleOnPressRightNode?: (event: GestureResponderEvent) => void;
-  rightContainerStyle?: ViewProps['style'] | null;
+  headerText?: string;
   leftContainerStyle?: ViewProps['style'] | null;
-  animatingWidthValues?: number[];
+  leftNode?: JSX.Element;
+  rightContainerStyle?: ViewProps['style'] | null;
+  rightNode?: JSX.Element;
 };
 
 const styles = StyleSheet.create({
+  headerItem: {
+    flex: 1,
+    paddingVertical: 20,
+  },
+  leftItem: {
+    alignItems: 'center',
+    display: 'flex',
+    justifyContent: 'center',
+    height: '100%',
+    width: 56,
+  },
   pageHeaderContainer: {
     alignItems: 'center',
     borderBottomColor: '#ccc',
@@ -29,13 +40,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-  leftItem: {
-    alignItems: 'center',
-    display: 'flex',
-    justifyContent: 'center',
-    height: '100%',
-    width: 50,
-  },
   rightItem: {
     alignItems: 'center',
     display: 'flex',
@@ -43,20 +47,16 @@ const styles = StyleSheet.create({
     height: '100%',
     width: 50,
   },
-  headerItem: {
-    flex: 1,
-    paddingVertical: 20,
-  },
 });
 
 const PageHeader: React.FC<PageHeaderProps> = ({
-  leftNode = null,
-  rightNode = null,
-  headerText = '',
   handleOnPressLeftNode = null,
   handleOnPressRightNode = null,
-  rightContainerStyle = null,
+  headerText = '',
   leftContainerStyle = null,
+  leftNode = null,
+  rightContainerStyle = null,
+  rightNode = null,
 }) => (
   <View>
     <View style={styles.pageHeaderContainer}>

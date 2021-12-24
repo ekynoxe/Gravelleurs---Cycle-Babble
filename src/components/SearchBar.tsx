@@ -9,13 +9,13 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     display: 'flex',
     flexDirection: 'row',
-    margin: 16,
+    marginBottom: 8,
     padding: 8,
   },
   input: {
+    flex: 1,
     marginLeft: 8,
     padding: 4,
-    flex: 1,
   },
 });
 

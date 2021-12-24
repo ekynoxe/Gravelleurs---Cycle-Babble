@@ -25,9 +25,9 @@ type Props = $RemoveChildren<typeof TouchableRipple> & {
 
 const styles = StyleSheet.create({
   container: {
+    alignItems: 'center',
     flex: 1,
     flexDirection: 'row',
-    alignItems: 'center',
   },
   right: {
     justifyContent: 'flex-end',
@@ -40,11 +40,9 @@ const TableCell = ({
   <TouchableRipple
     // eslint-disable-next-line react/jsx-props-no-spreading
     {...rest}
-    accessibilityTraits={undefined}
-    accessibilityComponentType={undefined}
     style={[styles.container, numeric && styles.right, style]}
   >
-    <Text accessibilityComponentType={undefined} accessibilityTraits={undefined}>{children}</Text>
+    <Text>{children}</Text>
   </TouchableRipple>
 );
 

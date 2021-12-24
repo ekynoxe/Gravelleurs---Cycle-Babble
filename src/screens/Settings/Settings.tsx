@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import {
-  StyleSheet, SafeAreaView, Text, View,
+  StyleSheet, SafeAreaView, Text, View, ViewStyle,
 } from 'react-native';
 import { RadioButton } from 'react-native-paper';
 import { StatusBar } from 'expo-status-bar';
@@ -10,12 +10,11 @@ import PageHeader from '../../components/PageHeader';
 
 import { SettingsContext } from '../../utils/SettingsContext';
 
+import { Screen, ScreenContent } from '../../styles';
+
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#f8f8f8',
-    color: '#000000',
-  },
+  screen: Screen as ViewStyle,
+  screenContent: ScreenContent as ViewStyle,
 });
 
 const SettingsScreen = () => {
@@ -25,11 +24,11 @@ const SettingsScreen = () => {
   const error = false;
 
   return loading || error ? null : (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.screen}>
       <PageHeader
         headerText={t('screens.settings')}
       />
-      <View style={{ flex: -1 }}>
+      <View style={styles.screenContent}>
         <Text>{ t('settings.baseLanguage') }</Text>
         <RadioButton.Group
           value={settings.baseLang || ''}

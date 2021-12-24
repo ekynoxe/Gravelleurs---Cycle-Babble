@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import {
-  Button, FlatList, StyleSheet, SafeAreaView, Text, View,
+  Button, FlatList, StyleSheet, SafeAreaView, Text, View, ViewStyle,
 } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import SearchBar from '../../components/SearchBar';
@@ -9,12 +9,11 @@ import flags from '../../data/flags';
 import { useTranslation } from '../../utils/i18n';
 import PageHeader from '../../components/PageHeader';
 
+import { Screen, ScreenContent } from '../../styles';
+
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#f8f8f8',
-    color: '#000000',
-  },
+  screen: Screen as ViewStyle,
+  screenContent: ScreenContent as ViewStyle,
 });
 
 const renderAirport = ({ item: airport, navigation }:{ item: Airport, navigation: any }) => (
@@ -37,11 +36,11 @@ const AirportsListScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
   }, [searchTerm]);
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.screen}>
       <PageHeader
         headerText={t('screens.airports')}
       />
-      <View style={{ flex: -1 }}>
+      <View style={styles.screenContent}>
         <SearchBar onChange={setSearchTerm} searchTerm={searchTerm} />
         <FlatList
           data={filteredData}
