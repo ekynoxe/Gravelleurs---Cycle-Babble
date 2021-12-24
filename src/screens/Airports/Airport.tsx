@@ -32,7 +32,7 @@ const AirportScreen = ({ route, navigation }: { route: any; navigation: any }) =
       <PageHeader
         headerText={airport.name}
         handleOnPressLeftNode={() => navigation.navigate('Airports')}
-        leftNode={<Ionicons name="arrow-back" size={20} color="green" />}
+        leftNode={<Ionicons name="ios-chevron-back-circle-outline" size={30} />}
       />
       <View style={{
         flex: -1,

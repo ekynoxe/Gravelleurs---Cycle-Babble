@@ -1,14 +1,24 @@
 import React, { useContext, useEffect, useState } from 'react';
-import * as Linking from 'expo-linking';
-import { NavigationContainer } from '@react-navigation/native';
+import { createURL } from 'expo-linking';
+import { LinkingOptions, NavigationContainer, NavigatorScreenParams } from '@react-navigation/native';
 
 import Tabs from './components/NavTabs';
-// import AirportsStack from './screens/Airports';
 import LoadingScreen from './screens/Loading';
 import { initI18n } from './utils/i18n';
 import languageDetector from './utils/languageDetector';
 
 import { SettingsContext } from './utils/SettingsContext';
+
+type AirportParamList = {
+  Airports: undefined
+  Airport: undefined
+}
+
+type RootStackParamList = {
+  AirportsStack: NavigatorScreenParams<AirportParamList>
+  LexiconStack: undefined
+  SettingsStack: undefined
+}
 
 const config = {
   screens: {
@@ -31,15 +41,6 @@ const config = {
   },
 };
 
-// const config = {
-//   screens: {
-//     Airports: 'airports',
-//     Airport: 'airport/:airportCode',
-//     Lexicon: 'lexicon',
-//     Settings: 'settings',
-//   },
-// };
-
 const App = () => {
   const {
     error: errorSettings,
@@ -47,9 +48,9 @@ const App = () => {
     settings,
   } = useContext(SettingsContext);
   const [isReady, setIsReady] = useState(false);
-  const prefix = Linking.makeUrl('/');
+  const prefix = createURL('/');
 
-  const linking = {
+  const linking: LinkingOptions<RootStackParamList> = {
     prefixes: [prefix],
     config,
   };

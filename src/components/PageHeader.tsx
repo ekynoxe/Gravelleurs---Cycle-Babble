@@ -28,24 +28,25 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
-  }, // tailwind('flex flex-row items-center justify-between '),
+  },
   leftItem: {
-    flex: 0,
-    backgroundColor: 'red',
-    paddingLeft: 20,
-    paddingVertical: 20,
-  }, // tailwind('flex-1 pl-4 py-4'),
+    alignItems: 'center',
+    display: 'flex',
+    justifyContent: 'center',
+    height: '100%',
+    width: 50,
+  },
   rightItem: {
-    alignItems: 'flex-end',
-    backgroundColor: 'red',
-    flex: 0,
-    paddingRight: 20,
-    paddingVertical: 20,
-  }, // tailwind('flex-1 pr-4 items-end py-4'),
+    alignItems: 'center',
+    display: 'flex',
+    justifyContent: 'center',
+    height: '100%',
+    width: 50,
+  },
   headerItem: {
     flex: 1,
     paddingVertical: 20,
-  }, // tailwind('flex-1 py-4'),
+  },
 });
 
 const PageHeader: React.FC<PageHeaderProps> = ({
