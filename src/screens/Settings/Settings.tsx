@@ -27,7 +27,7 @@ const SettingsScreen = () => {
   return loading || error ? null : (
     <SafeAreaView style={styles.container}>
       <PageHeader
-        headerText="Settings"
+        headerText={t('screens.settings')}
       />
       <View style={{ flex: -1 }}>
         <Text>{ t('settings.baseLanguage') }</Text>

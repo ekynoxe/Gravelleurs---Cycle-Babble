@@ -2,7 +2,7 @@
   "airport": {
     "facilities": "Facilities:"
   },
-  "navTabs": {
+  "screens": {
     "airports": "Airports",
     "translate": "Translate",
     "settings": "Settings"

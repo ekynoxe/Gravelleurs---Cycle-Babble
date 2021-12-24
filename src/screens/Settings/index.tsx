@@ -19,7 +19,7 @@ const SettingsStack = () => {
         name="Settings"
         component={SettingsScreen}
         options={{
-          title: t('navTabs.settings'),
+          title: t('screens.settings'),
         }}
       />
     </Stack.Navigator>

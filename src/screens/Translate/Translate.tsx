@@ -6,6 +6,8 @@ import { StatusBar } from 'expo-status-bar';
 import PaperTable from '../../components/PaperTable';
 import SearchBar from '../../components/SearchBar';
 import data from '../../data/lang';
+import PageHeader from '../../components/PageHeader';
+import { useTranslation } from '../../utils/i18n';
 
 const styles = StyleSheet.create({
   container: {
@@ -16,6 +18,7 @@ const styles = StyleSheet.create({
 });
 
 const TranslateScreen = () => {
+  const { t } = useTranslation();
   const [searchTerm, setSearchTerm] = useState('');
 
   const filteredData = useMemo(() => {
@@ -28,6 +31,9 @@ const TranslateScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
+      <PageHeader
+        headerText={t('screens.translate')}
+      />
       <View style={{ flex: -1 }}>
         <SearchBar onChange={setSearchTerm} searchTerm={searchTerm} />
         <PaperTable data={filteredData} />

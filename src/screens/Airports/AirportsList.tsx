@@ -6,6 +6,7 @@ import { StatusBar } from 'expo-status-bar';
 import SearchBar from '../../components/SearchBar';
 import airports, { Airport } from '../../data/airports';
 import flags from '../../data/flags';
+import { useTranslation } from '../../utils/i18n';
 import PageHeader from '../../components/PageHeader';
 
 const styles = StyleSheet.create({
@@ -26,6 +27,7 @@ const renderAirport = ({ item: airport, navigation }:{ item: Airport, navigation
 );
 
 const AirportsListScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
+  const { t } = useTranslation();
   const [searchTerm, setSearchTerm] = useState('');
 
   const filteredData = useMemo(() => {
@@ -37,7 +39,7 @@ const AirportsListScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <PageHeader
-        headerText="Airports"
+        headerText={t('screens.airports')}
       />
       <View style={{ flex: -1 }}>
         <SearchBar onChange={setSearchTerm} searchTerm={searchTerm} />

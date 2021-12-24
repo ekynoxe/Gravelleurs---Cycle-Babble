@@ -24,7 +24,7 @@ export default () => {
         component={TranslateStack}
         options={{
           headerShown: false,
-          tabBarLabel: t('navTabs.translate'),
+          tabBarLabel: t('screens.translate'),
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="chatbubble-ellipses-outline" color={color} size={size} />
           ),
@@ -35,11 +35,11 @@ export default () => {
         component={AirportsStack}
         options={{
           headerShown: false,
-          tabBarLabel: t('navTabs.airports'),
+          tabBarLabel: t('screens.airports'),
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="airplane" color={color} size={size} />
           ),
-          title: t('navTabs.airports'),
+          title: t('screens.airports'),
           unmountOnBlur: true,
         }}
         listeners={({ navigation }) => (
@@ -51,11 +51,11 @@ export default () => {
         component={SettingsStack}
         options={{
           headerShown: false,
-          tabBarLabel: t('navTabs.settings'),
+          tabBarLabel: t('screens.settings'),
           tabBarIcon: ({ color, size }) => (
             <Feather name="settings" color={color} size={size} />
           ),
-          title: t('navTabs.settings'),
+          title: t('screens.settings'),
         }}
       />
     </Tab.Navigator>

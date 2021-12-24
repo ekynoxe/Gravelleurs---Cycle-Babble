@@ -2,9 +2,9 @@
   "airport": {
     "facilities": "Servicios:"
   },
-  "navTabs": {
+  "screens": {
     "airports": "Aeropuertos",
-    "translate": "Léxico",
+    "translate": "Traducir",
     "settings": "Ajustes"
   },
   "search": {

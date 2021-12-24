@@ -21,7 +21,7 @@ const AirportsStack = () => {
         name="Airports"
         component={AirportsListScreen}
         options={{
-          title: t('navTabs.airports'),
+          title: t('screens.airports'),
         }}
       />
       <Stack.Screen

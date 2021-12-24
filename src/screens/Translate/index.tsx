@@ -19,7 +19,7 @@ const TranslateStack = () => {
         name="Translate"
         component={TranslateScreen}
         options={{
-          title: t('navTabs.translate'),
+          title: t('screens.translate'),
         }}
       />
     </Stack.Navigator>
