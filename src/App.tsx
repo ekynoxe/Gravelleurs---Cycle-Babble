@@ -16,7 +16,7 @@ type AirportParamList = {
 
 type RootStackParamList = {
   AirportsStack: NavigatorScreenParams<AirportParamList>
-  LexiconStack: undefined
+  TranslateStack: undefined
   SettingsStack: undefined
 }
 
@@ -28,9 +28,9 @@ const config = {
         Airport: 'airport/:airportCode',
       },
     },
-    LexiconStack: {
+    TranslateStack: {
       screens: {
-        Lexicon: 'lexicon',
+        Translate: 'translate',
       },
     },
     SettingsStack: {

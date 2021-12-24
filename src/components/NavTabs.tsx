@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Feather, Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 
 import AirportsStack from '../screens/Airports';
-import LexiconStack from '../screens/Lexicon';
+import TranslateStack from '../screens/Translate';
 import SettingsStack from '../screens/Settings';
 import { useTranslation } from '../utils/i18n';
 
@@ -13,18 +13,18 @@ export default () => {
   const { t } = useTranslation();
   return (
     <Tab.Navigator
-      initialRouteName="Lexicon"
+      initialRouteName="Translate"
       screenOptions={{
         tabBarActiveTintColor: '#e91e63',
         lazy:false,
       }}
     >
       <Tab.Screen
-        name="LexiconStack"
-        component={LexiconStack}
+        name="TranslateStack"
+        component={TranslateStack}
         options={{
           headerShown: false,
-          tabBarLabel: t('navTabs.lexicon'),
+          tabBarLabel: t('navTabs.translate'),
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="chatbubble-ellipses-outline" color={color} size={size} />
           ),

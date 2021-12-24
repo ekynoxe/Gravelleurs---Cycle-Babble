@@ -1,29 +1,29 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import LexiconScreen from './Lexicon';
+import TranslateScreen from './Translate';
 import { useTranslation } from '../../utils/i18n';
 
 const Stack = createStackNavigator();
 
-const LexiconStack = () => {
+const TranslateStack = () => {
   const { t } = useTranslation();
   return (
     <Stack.Navigator
-      initialRouteName="Lexicon"
+      initialRouteName="Translate"
       screenOptions={{
         headerShown: false
       }}
     >
       <Stack.Screen
-        name="Lexicon"
-        component={LexiconScreen}
+        name="Translate"
+        component={TranslateScreen}
         options={{
-          title: t('navTabs.lexicon'),
+          title: t('navTabs.translate'),
         }}
       />
     </Stack.Navigator>
   );
 };
 
-export default () => <LexiconStack />;
+export default () => <TranslateStack />;

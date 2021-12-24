@@ -15,14 +15,14 @@ const styles = StyleSheet.create({
   },
 });
 
-const LexiconScreen = () => {
+const TranslateScreen = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const filteredData = useMemo(() => {
     const regexp = new RegExp(searchTerm, 'gi');
     return {
       head: Object.entries(data.languages).map(([, language]) => language.label),
-      rows: data.lexicon.filter((row) => row.find((word) => word.match(regexp))),
+      rows: data.translate.filter((row) => row.find((word) => word.match(regexp))),
     };
   }, [searchTerm]);
 
@@ -37,4 +37,4 @@ const LexiconScreen = () => {
   );
 };
 
-export default LexiconScreen;
+export default TranslateScreen;
