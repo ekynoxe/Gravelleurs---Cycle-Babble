@@ -29,18 +29,6 @@ const SettingsScreen = () => {
         headerText={t('screens.settings')}
       />
       <View style={styles.screenContent}>
-        <Text>{ t('settings.baseLanguage') }</Text>
-        <RadioButton.Group
-          value={settings.baseLang || ''}
-          onValueChange={(lang) => {
-            updateSettings({ baseLang: lang });
-          }}
-        >
-          {
-            Object.entries(data.languages).map(([key, language]) => (
-              <RadioButton.Item label={language.label} key={key} value={key} />))
-          }
-        </RadioButton.Group>
         <Text>{ t('settings.appLanguage') }</Text>
         <RadioButton.Group
           value={settings.appLang || ''}
@@ -53,8 +41,19 @@ const SettingsScreen = () => {
               <RadioButton.Item label={language.label} key={key} value={key} />))
           }
         </RadioButton.Group>
+        <Text>{ t('settings.baseLanguageForTranslation') }</Text>
+        <RadioButton.Group
+          value={settings.baseLang || ''}
+          onValueChange={(lang) => {
+            updateSettings({ baseLang: lang });
+          }}
+        >
+          {
+            Object.entries(data.languages).map(([key, language]) => (
+              <RadioButton.Item label={language.label} key={key} value={key} />))
+          }
+        </RadioButton.Group>
       </View>
-      {/* eslint-disable-next-line react/style-prop-object */}
       <StatusBar style="auto" />
     </SafeAreaView>
   );

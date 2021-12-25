@@ -6,26 +6,16 @@ import enApp from './app/en.json';
 import esApp from './app/es.json';
 import frApp from './app/fr.json';
 
-interface DataType { [key: string]: string; }
+import { JSONDataType, Language, Translations } from '../../types'
 
-const EN_WORDS_LEXICON = enTranslate as DataType;
-const ES_WORDS_LEXICON = esTranslate as DataType;
-const FR_WORDS_LEXICON = frTranslate as DataType;
-const EN_WORDS_APP = enApp as DataType;
-const ES_WORDS_APP = esApp as DataType;
-const FR_WORDS_APP = frApp as DataType;
+const EN_WORDS_LEXICON = enTranslate as JSONDataType;
+const ES_WORDS_LEXICON = esTranslate as JSONDataType;
+const FR_WORDS_LEXICON = frTranslate as JSONDataType;
+const EN_WORDS_APP = enApp;
+const ES_WORDS_APP = esApp;
+const FR_WORDS_APP = frApp;
 
-const wordsTranslate = [] as string[][];
-export interface Language {
-  key: string;
-  label: string;
-}
-
-export interface AppWords {
-  en: DataType;
-  es: DataType;
-  fr: DataType;
-}
+const translations: Translations = []
 
 const languages = [
   { lang: 'en', country: 'GB' },
@@ -40,8 +30,11 @@ const languages = [
 }, {});
 
 Object.keys(enTranslate).forEach((k: string) => {
-  wordsTranslate.push([EN_WORDS_LEXICON[k] || '--', ES_WORDS_LEXICON[k] || '--', FR_WORDS_LEXICON[k] || '--']);
-});
+  translations.push({
+    en: EN_WORDS_LEXICON[k] || '--',
+    es: ES_WORDS_LEXICON[k] || '--',
+    fr: FR_WORDS_LEXICON[k] || '--',
+  })});
 
 export default {
   languages,
@@ -50,5 +43,5 @@ export default {
     es: ES_WORDS_APP,
     fr: FR_WORDS_APP,
   },
-  translate: [...wordsTranslate],
+  translations,
 };

@@ -12,6 +12,6 @@
   },
   "settings": {
     "appLanguage": "App language",
-    "baseLanguage": "Base language"
+    "baseLanguageForTranslation": "Base language for translation"
   }
 }
