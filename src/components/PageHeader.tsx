@@ -29,7 +29,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     display: 'flex',
     justifyContent: 'center',
-    height: '100%',
     width: 56,
   },
   pageHeaderContainer: {
@@ -44,7 +43,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     display: 'flex',
     justifyContent: 'center',
-    height: '100%',
     width: 50,
   },
 });
