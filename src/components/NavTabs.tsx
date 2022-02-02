@@ -30,7 +30,7 @@ export default () => {
           ),
         }}
       />
-      {/* <Tab.Screen
+      <Tab.Screen
         name="AirportsStack"
         component={AirportsStack}
         options={{
@@ -45,7 +45,7 @@ export default () => {
         listeners={({ navigation }) => (
           { blur: () => navigation.setParams({ screen: undefined }) }
         )}
-      /> */}
+      />
       <Tab.Screen
         name="SettingsStack"
         component={SettingsStack}
