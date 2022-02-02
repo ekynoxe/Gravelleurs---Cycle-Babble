@@ -6,7 +6,7 @@ React.ComponentPropsWithoutRef<T>,
 
 export type JSONDataType = Record<string, string>
 
-export type Lang = 'en' | 'es' | 'fr'
+export type Lang = 'de' | 'en' | 'es' | 'fr' | 'it' | 'nl' | 'pt' | 'rs' | 'se'
 
 export type Language = {
   key: string;

@@ -1,10 +1,15 @@
 {
   "expo": {
-    "name": "Cycle Babble - by Gravelleurs",
-    "slug": "cycle-babble",
-    "version": "1.0.0",
-    "orientation": "default",
+    "version": "0.0.1",
+
     "icon": "./assets/icon.png",
+    "name": "Cycle Babble",
+    "orientation": "default",
+    "owner": "Gravelleurs",
+    "privacy": "hidden",
+    "sdkVersion": "44.0.0",
+    "slug": "cycle-babble",
+    "scheme": "grav-travel",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -16,18 +21,22 @@
     "assetBundlePatterns": [
       "**/*"
     ],
-    "ios": {
-      "supportsTablet": true
-    },
+
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "gravelleurs.babble",
+      "versionCode": 1
+    },
+    "ios": {
+      "buildNumber": "0.0.1",
+      "bundleIdentifier": "gravelleurs-babble",
+      "supportsTablet": true
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    },
-    "scheme": "grav-travel"
+    }
   }
 }
