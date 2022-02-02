@@ -37,8 +37,8 @@ const SettingsScreen = () => {
           }}
         >
           {
-            Object.entries(data.languages).map(([key, language]) => (
-              <RadioButton.Item label={language.label} key={key} value={key} />))
+            Object.keys(data.app).map((key) => (
+              <RadioButton.Item label={data.languages[key].label} key={key} value={key} />))
           }
         </RadioButton.Group>
         <Text>{ t('settings.baseLanguageForTranslation') }</Text>
