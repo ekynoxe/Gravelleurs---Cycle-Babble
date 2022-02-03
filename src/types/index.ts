@@ -25,4 +25,5 @@ export type Translations = Row[]
 export type TableData = {
   colDefs: Column[];
   data: Translations;
+  search: string;
 }

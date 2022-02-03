@@ -1,9 +1,35 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { FlatList, StyleSheet, Text, TouchableOpacity, View, ViewStyle } from 'react-native';
 // import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { TableData } from '../types'
 
 const styles = StyleSheet.create({
+  columnHeader: {
+    display: 'flex',
+    flex: 1,
+    justifyContent: 'center',
+    overflowY: 'scroll',
+  },
+  columnHeaderTxt: {
+    color: '#000',
+    fontSize: 20,
+    fontWeight: '700',
+  },
+  columnRowTxt: {
+    alignItems: 'center',
+    display: 'flex',
+    flex: 1,
+    flexShrink: 1,
+    paddingBottom: 5,
+    paddingRight: 30,
+    paddingTop: 5,
+  },
+  container: {
+    display: 'flex',
+    flex: 1,
+    height: '100%',
+    width: '100%',
+  },
   tableHeader: {
     alignItems: 'center',
     backgroundColor: '#f1f8ff',
@@ -19,24 +45,6 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     minHeight: 48,
-  },
-  columnHeader: {
-    display: 'flex',
-    flex: 1,
-    justifyContent: 'center',
-  },
-  columnHeaderTxt: {
-    color: '#000',
-    fontSize: 20,
-    fontWeight: '700',
-  },
-  columnRowTxt: {
-    alignItems: 'center', 
-    display: 'flex',
-    flex: 1,
-    paddingBottom: 5,
-    paddingRight: 30,
-    paddingTop: 5,
   }
 });
 
@@ -51,6 +59,7 @@ const orderBy = (data: any[], field: string, direction: 'asc' | 'desc') => {
 const PaperTable = ({
   colDefs,
   data,
+  search,
 }: TableData) => {
   const [ direction, setDirection ] = useState<'asc' | 'desc'>('asc')
   const [ selectedColumn, setSelectedColumn ] = useState<string>()
@@ -63,6 +72,11 @@ const PaperTable = ({
     // setDirection(newDirection)
     // setWords(sortedData)
   }
+
+  const filteredData = useMemo(() => {
+    const regexp = new RegExp(search, 'gi');
+    return data.filter((words) => Object.values(words).find((word) => word.match(regexp)));
+  }, [search]);
 
   const tableHeader = () => (
     <View style={styles.tableHeader}>
@@ -89,22 +103,24 @@ const PaperTable = ({
   )
 
   return (
-      <FlatList 
-      data={data}
-      style={{width: '100%'}}
-      keyExtractor={(_: unknown, index: number) => `${index}`}
-      ListHeaderComponent={tableHeader}
-      stickyHeaderIndices={[0]}
-      renderItem={({item: row, index: rowIndex}: {item: any, index: number})=> {
-        return (
-          <View style={styles.tableRow}>
-            {colDefs.map((column, cellIndex) => (
-              <Text style={styles.columnRowTxt} key={`row${rowIndex}-${cellIndex}-${column.key}`}>{row[column.key]}</Text>
-            ))}
-          </View>
-        )
-      }}
-    />
+    <View style={styles.container}>
+      <FlatList
+        data={filteredData}
+        style={{minWidth: '100%'}}
+        keyExtractor={(_: unknown, index: number) => `${index}`}
+        ListHeaderComponent={tableHeader}
+        stickyHeaderIndices={[0]}
+        renderItem={({item: row, index: rowIndex}: {item: any, index: number})=> {
+          return (
+            <View style={styles.tableRow}>
+              {colDefs.map((column, cellIndex) => (
+                <Text style={styles.columnRowTxt} key={`row${rowIndex}-${cellIndex}-${column.key}`}>{row[column.key]}</Text>
+              ))}
+            </View>
+          )
+        }}
+      />
+    </View>
   )
 }
 export default PaperTable

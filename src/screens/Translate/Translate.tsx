@@ -1,23 +1,13 @@
-import React, { useContext, useEffect, useMemo, useState } from 'react';
-import {
-  StyleSheet, SafeAreaView, View, ViewStyle,
-} from 'react-native';
+import React, { useContext, useMemo, useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import PaperTable from '../../components/PaperTable';
 import SearchBar from '../../components/SearchBar';
 import data from '../../data/lang';
-import PageHeader from '../../components/PageHeader';
+import Screen from '../../components/Screen';
 import { useTranslation } from '../../utils/i18n';
 import { Column, Lang } from '../../types'
 
 import { SettingsContext } from '../../utils/SettingsContext';
-
-import { Screen, ScreenContent } from '../../styles';
-
-const styles = StyleSheet.create({
-  screen: Screen as ViewStyle,
-  screenContent: ScreenContent as ViewStyle,
-});
 
 const TranslateScreen = () => {
   const { t } = useTranslation();
@@ -44,22 +34,12 @@ const TranslateScreen = () => {
     return order
   }, [sortedLanguages])
 
-  const filteredData = useMemo(() => {
-    const regexp = new RegExp(searchTerm, 'gi');
-    return data.translations.filter((words) => Object.values(words).find((word) => word.match(regexp)));
-  }, [searchTerm]);
-
   return (
-    <SafeAreaView style={styles.screen}>
-      <PageHeader
-        headerText={t('screens.translate')}
-      />
-      <View style={styles.screenContent}>
-        <SearchBar onChange={setSearchTerm} searchTerm={searchTerm} />
-        <PaperTable data={filteredData} colDefs={colDefs} />
-      </View>
+    <Screen headerText={t('screens.translate')}>
+      <SearchBar onChange={setSearchTerm} searchTerm={searchTerm} />
+      <PaperTable data={data.translations} colDefs={colDefs} search={searchTerm} />
       <StatusBar style="auto" />
-    </SafeAreaView>
+    </Screen>
   );
 };
 
