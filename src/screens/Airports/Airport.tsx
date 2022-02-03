@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { StatusBar } from 'expo-status-bar';
 import { Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useTranslation } from '../../utils/i18n';
@@ -28,6 +29,7 @@ const AirportScreen = ({ route, navigation }: { route: any; navigation: any }) =
         <View>
           <Text>{t('airport.facilities')}</Text>
         </View>
+        <StatusBar style="auto" />
     </Screen>
   );
 };

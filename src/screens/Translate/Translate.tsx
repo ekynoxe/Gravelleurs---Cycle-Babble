@@ -35,7 +35,7 @@ const TranslateScreen = () => {
   }, [sortedLanguages])
 
   return (
-    <Screen headerText={t('screens.translate')}>
+    <Screen headerText={t('screens.translate')} noScroll>
       <SearchBar onChange={setSearchTerm} searchTerm={searchTerm} />
       <PaperTable data={data.translations} colDefs={colDefs} search={searchTerm} />
       <StatusBar style="auto" />

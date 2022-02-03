@@ -1,8 +1,7 @@
 import React, { PropsWithChildren } from 'react';
 import {
-  StyleSheet, SafeAreaView, Text, View, ViewStyle,
+  StyleSheet, SafeAreaView, ScrollView, View,
 } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
 import PageHeader from './PageHeader';
 
 const styles = StyleSheet.create({
@@ -10,11 +9,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#f8f8f8',
     color: '#000000',
+    overflow: 'hidden',
   },
   screenContent: {
     display: 'flex',
-    flex: -1,
-    overflowY: 'auto',
+    flex: 1,
     paddingHorizontal: 16,
     paddingVertical: 16,
   },
@@ -24,6 +23,7 @@ type ScreenProps = {
   handleOnPressLeftNode?: () => void
   headerText: string,
   leftNode?: React.ReactElement
+  noScroll?: boolean
 }
 
 const Screen = ({
@@ -31,7 +31,9 @@ const Screen = ({
   handleOnPressLeftNode,
   headerText,
   leftNode,
+  noScroll,
 }: PropsWithChildren<ScreenProps>) => {
+  const Component = noScroll ? View : ScrollView
 
   return (
     <SafeAreaView style={styles.screen}>
@@ -41,9 +43,9 @@ const Screen = ({
         leftNode={leftNode}
         // TODO: add other page header props
       />
-      <View style={styles.screenContent}>
+      <Component style={styles.screenContent}>
         {children}
-      </View>
+      </Component>
     </SafeAreaView>
   );
 };

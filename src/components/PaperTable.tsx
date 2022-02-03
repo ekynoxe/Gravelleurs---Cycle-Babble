@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { FlatList, StyleSheet, Text, TouchableOpacity, View, ViewStyle } from 'react-native';
+import { FlatList, ScrollView, StyleSheet, Text, TouchableOpacity, View, } from 'react-native';
 // import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { TableData } from '../types'
 
@@ -8,7 +8,6 @@ const styles = StyleSheet.create({
     display: 'flex',
     flex: 1,
     justifyContent: 'center',
-    overflowY: 'scroll',
   },
   columnHeaderTxt: {
     color: '#000',
@@ -23,6 +22,7 @@ const styles = StyleSheet.create({
     paddingBottom: 5,
     paddingRight: 30,
     paddingTop: 5,
+    width: 180,
   },
   container: {
     display: 'flex',
@@ -103,7 +103,7 @@ const PaperTable = ({
   )
 
   return (
-    <View style={styles.container}>
+    <ScrollView horizontal style={styles.container}>
       <FlatList
         data={filteredData}
         style={{minWidth: '100%'}}
@@ -120,7 +120,7 @@ const PaperTable = ({
           )
         }}
       />
-    </View>
+    </ScrollView>
   )
 }
 export default PaperTable
