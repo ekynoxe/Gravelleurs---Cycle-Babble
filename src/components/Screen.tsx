@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
   screenContent: {
     display: 'flex',
     flex: -1,
+    overflowY: 'auto',
     paddingHorizontal: 16,
     paddingVertical: 16,
   },
